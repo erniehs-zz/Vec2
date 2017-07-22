@@ -2,6 +2,7 @@ var Vec2 = require("./index");
 var expect = require("chai").expect;
 
 describe("Vec2 is a two dimensional vector", function() {
+
   describe("Vec2 can be constructed", function() {
     it("can be constructed with no arguments to yield a zero vector",
       function() {
@@ -30,5 +31,25 @@ describe("Vec2 is a two dimensional vector", function() {
       expect(v3.x).to.equal(4);
       expect(v3.y).to.equal(6);
     });
+    it("can be subtracted another Vec2", function() {
+      var v1 = new Vec2(1, 2);
+      var v2 = new Vec2(3, 5);
+      var v3 = v1.sub(v2);
+      expect(v3.x).to.equal(-2);
+      expect(v3.y).to.equal(-3);
+    });
+    it("can be multiplied by a scalar", function() {
+      var v1 = new Vec2(1, 2);
+      var v2 = v1.mul(5);
+      expect(v2.x).to.equal(5);
+      expect(v2.y).to.equal(10);
+    });
+    it("can be divided by a scalar", function() {
+      var v1 = new Vec2(10, 20);
+      var v2 = v1.div(5);
+      expect(v2.x).to.equal(2);
+      expect(v2.y).to.equal(4);
+    });
   });
+
 });

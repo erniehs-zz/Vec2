@@ -11,7 +11,18 @@ module.exports = class Vec2 {
   }
 
   add(v) {
-    return new Vec2(v.x + this.x, v.y + this.y);
+    return new Vec2(this.x + v.x, this.y + v.y);
   }
 
+  sub(v) {
+    return new Vec2(this.x - v.x, this.y - v.y);
+  }
+
+  mul(s) {
+    return new Vec2(this.x * s, this.y * s);
+  }
+
+  div(s) {
+    return new Vec2(this.x / s, this.y / s);
+  }
 }
