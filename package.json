@@ -1,5 +1,5 @@
 {
-  "name": "vec2",
+  "name": "lib-vec2",
   "version": "1.0.0",
   "description": "Another vector package",
   "main": "index.js",
