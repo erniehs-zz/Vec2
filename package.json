@@ -1,6 +1,6 @@
 {
-  "name": "@ernie_hs/vec",
-  "version": "1.3.0",
+  "name": "@ernie_hs/Vec2",
+  "version": "1.0.0",
   "description": "Another vector package",
   "main": "index.js",
   "scripts": {
