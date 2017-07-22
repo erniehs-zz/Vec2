@@ -1,4 +1,4 @@
-var Vec2 = require("./index");
+var Vec2 = require("./index").Vec2;
 var expect = require("chai").expect;
 
 describe("Vec2 is a two dimensional vector", function() {

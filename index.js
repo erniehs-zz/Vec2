@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = class Vec2 {
+class Vec2 {
   constructor(x = 0, y = 0) {
     this.x = x;
     this.y = y;
@@ -42,3 +42,10 @@ module.exports = class Vec2 {
     return this.div(this.mod());
   }
 }
+
+class Mat {
+
+}
+
+module.exports.Vec2 = Vec2;
+module.exports.Mat = Mat;
