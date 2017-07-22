@@ -25,4 +25,20 @@ module.exports = class Vec2 {
   div(s) {
     return new Vec2(this.x / s, this.y / s);
   }
+
+  mod2() {
+    return this.x * this.x + this.y * this.y;
+  }
+
+  mod() {
+    return Math.sqrt(this.mod2());
+  }
+
+  dot(v) {
+    return this.x * v.x + this.y * v.y;
+  }
+
+  norm() {
+    return this.div(this.mod());
+  }
 }
