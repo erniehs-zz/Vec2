@@ -1,4 +1,5 @@
 var Vec2 = require("./index").Vec2;
+var MatA = require("./index").MatA;
 var expect = require("chai").expect;
 
 describe("Vec2 is a two dimensional vector", function() {
@@ -78,4 +79,58 @@ describe("Vec2 is a two dimensional vector", function() {
       expect(v2.y).to.be.closeTo(ey, 0.00001);
     });
   });
+});
+
+describe("MatA is 3x3 matrix used for affine transforms", function() {
+
+  describe("MatA can be constructed", function() {
+    it("can be constructed with 6 parameters", function() {
+      var m = new MatA(1, 2, 3, 4, 5, 6);
+      expect(m.m00).equal(1);
+      expect(m.m01).equal(2);
+      expect(m.m02).equal(3);
+      expect(m.m10).equal(4);
+      expect(m.m11).equal(5);
+      expect(m.m12).equal(6);
+    });
+    it("can be constructed using static identity", function() {
+      var m = MatA.identity();
+      expect(m.m00).equal(1);
+      expect(m.m01).equal(0);
+      expect(m.m02).equal(0);
+      expect(m.m10).equal(0);
+      expect(m.m11).equal(1);
+      expect(m.m12).equal(0);
+    });
+    it("can be constructed using static translate", function() {
+      var m = MatA.translate(new Vec2(10, 20));
+      expect(m.m00).equal(1);
+      expect(m.m01).equal(0);
+      expect(m.m02).equal(10);
+      expect(m.m10).equal(0);
+      expect(m.m11).equal(1);
+      expect(m.m12).equal(20);
+    });
+    it("can be constructed using static scale", function() {
+      var m = MatA.scale(new Vec2(10, 20));
+      expect(m.m00).equal(10);
+      expect(m.m01).equal(0);
+      expect(m.m02).equal(0);
+      expect(m.m10).equal(0);
+      expect(m.m11).equal(20);
+      expect(m.m12).equal(0);
+    });
+    it("can be constructed using static rotate", function() {
+      var m = MatA.rotate(Math.PI / 2);
+      var ct = Math.cos(Math.PI / 2);
+      var st = Math.sin(Math.PI / 2);
+      expect(m.m00).to.be.closeTo(ct, 0.000001);
+      expect(m.m01).to.be.closeTo(st, 0.000001);
+      expect(m.m02).equal(0)
+      expect(m.m10).to.be.closeTo(-st, 0.000001);
+      expect(m.m11).to.be.closeTo(ct, 0.000001);
+      expect(m.m12).equal(0);
+    });
+  });
+
 });
