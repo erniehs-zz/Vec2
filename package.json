@@ -1,10 +1,10 @@
 {
-  "name": "@ernie_hs/Vec2",
+  "name": "@ernie_hs/vec2",
   "version": "1.0.0",
   "description": "Another vector package",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "mocha --reporter spec"
   },
   "author": "Ernie <ernie_hs@hotmail.com>",
   "license": "MIT",
@@ -12,5 +12,16 @@
     "chai": "^4.1.0",
     "mocha": "^3.4.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erniehs/Vec2.git"
+  },
+  "keywords": [
+    "vector"
+  ],
+  "bugs": {
+    "url": "https://github.com/erniehs/Vec2/issues"
+  },
+  "homepage": "https://github.com/erniehs/Vec2#readme"
 }
