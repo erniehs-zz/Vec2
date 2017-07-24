@@ -71,6 +71,11 @@ class MatA {
     return new MatA(ct, st, 0, -st, ct, 0);
   }
 
+  /*
+   *  [m00 m01 m02] [x]   [m00*x+m01*y+m02]
+   *  [m10 m11 m12] [y] = [m10*x+m11*y+m12]
+   *  [ 0   0   1 ] [1]   [       1       ]
+   */
   static mMulV(m, v) {
     return new Vec2(m.m00 * v.x + m.m01 * v.y + m.m02, m.m10 * x + m.m11 * y +
       m.m12);
@@ -80,8 +85,19 @@ class MatA {
     return this.mMulV(this, v);
   }
 
+  /*
+   *  [m00 m01 m02] [m00 m01 m02]   [m00*m00+m01*m10, m00*m01+m01*m11, m00*m02+m01*m12+m02]
+   *  [m10 m11 m12] [m10 m11 m12] = [m10*m00+m11*m10, m10*m01+m11*m11, m10*m02+m11*m12+m12]
+   *  [ 0   0   1 ] [ 0   0   1]]   [       0                0                1           ]
+   */
   static mMulM(m1, m2) {
-    return new MatA();
+    return new MatA(m1.m00*m2.m00+m1.m01*m2.m10,
+      m1.m00*m1.m01+m1.m01*m2.m11,
+      m1.m00*m2.m02+m1.m01*m2.m12+m1.m02,
+      m1.m10*m2.m00+m1.m11*m2.m10,
+      m1.m10*m1.m01+m1.m11*m2.m11,
+      m1.m10*m2.m02+m1.m11*m2.m12+m1.m12,
+      0, 0, 1);
   }
 
   mulM(m) {

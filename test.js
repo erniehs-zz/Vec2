@@ -82,7 +82,6 @@ describe("Vec2 is a two dimensional vector", function() {
 });
 
 describe("MatA is 3x3 matrix used for affine transforms", function() {
-
   describe("MatA can be constructed", function() {
     it("can be constructed with 6 parameters", function() {
       var m = new MatA(1, 2, 3, 4, 5, 6);
@@ -133,4 +132,11 @@ describe("MatA is 3x3 matrix used for affine transforms", function() {
     });
   });
 
+  describe("MatA can transform a vector", function() {
+
+  });
+
+  describe("MatA can mul another MatA", function() {
+
+  });
 });
