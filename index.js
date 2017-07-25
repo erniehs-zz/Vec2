@@ -72,12 +72,12 @@ class MatA {
   }
 
   static mMulV(m, v) {
-    return new Vec2(m.m00 * v.x + m.m01 * v.y + m.m02, m.m10 * x + m.m11 * y +
-      m.m12);
+    return new Vec2(m.m00 * v.x + m.m01 * v.y + m.m02, m.m10 * v.x + m.m11 *
+      v.y + m.m12);
   }
 
   mulV(v) {
-    return this.mMulV(this, v);
+    return MatA.mMulV(this, v);
   }
 
   static mMulM(m1, m2) {
@@ -85,7 +85,7 @@ class MatA {
   }
 
   mulM(m) {
-    return this.mMulM(this, m);
+    return MatA.mMulM(this, m);
   }
 }
 

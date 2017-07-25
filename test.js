@@ -133,4 +133,33 @@ describe("MatA is 3x3 matrix used for affine transforms", function() {
     });
   });
 
+  describe("MatA can operate on vectors", function() {
+    it("can mul a vector", function() {
+      var m = MatA.rotate(Math.PI / 2);
+      var v = m.mulV(new Vec2(1, 1));
+      expect(v.x).to.be.closeTo(1, 0.0001);
+      expect(v.y).to.be.closeTo(-1, 0.0001);
+    });
+    it("can static mul a vector", function() {
+      var m = MatA.rotate(Math.PI / 2);
+      var v = new Vec2(1, 1);
+      var r = MatA.mMulV(m, v);
+      expect(r.x).to.be.closeTo(1, 0.0001);
+      expect(r.y).to.be.closeTo(-1, 0.0001);
+    });
+  });
+
+  describe("MatA can operate on other MatA's", function() {
+    it("can mul a MatA", function() {
+      var m1 = MatA.rotate(Math.PI / 2);
+      var m2 = MatA.translate(new Vec2(10, 10));
+      var mr = m1.mulM(m2);
+    });
+    it("can static mul a MatA", function() {
+      var m1 = MatA.rotate(Math.PI / 2);
+      var m2 = MatA.translate(new Vec2(10, 10));
+      var mr = MatA.mMulM(m1, m2);
+      console.log(mr);
+    });
+  });
 });
