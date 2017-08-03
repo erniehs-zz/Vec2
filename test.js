@@ -22,7 +22,7 @@ describe("Vec2 is a two dimensional vector", function() {
       var n = Vec2.withVec2(v);
       expect(n.x).to.equal(1);
       expect(n.y).to.equal(2);
-    })
+    });
   });
 
   describe("Vec2 can add, mul, div and sub", function() {
@@ -78,6 +78,15 @@ describe("Vec2 is a two dimensional vector", function() {
       var ey = 3 / Math.sqrt(13);
       expect(v2.x).to.be.closeTo(ex, EPSLON);
       expect(v2.y).to.be.closeTo(ey, EPSLON);
+    });
+  });
+
+  describe("Vec2 can be compounded", function() {
+    it("can compound functions", function() {
+        var v1 = new Vec2(2, 2);
+        var v2 = v1.add(new Vec2(3, 3)).sub(new Vec2(4, 4));
+        expect(v2.x).to.equal(1);
+        expect(v2.y).to.equal(1);
     });
   });
 });
