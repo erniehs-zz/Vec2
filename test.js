@@ -4,7 +4,6 @@ var expect = require("chai").expect;
 const EPSLON = 0.00001;
 
 describe("Vec2 is a two dimensional vector", function () {
-
     describe("Vec2 can be constructed", function () {
         it("can be constructed with no arguments to yield a zero vector",
             function () {
@@ -136,7 +135,7 @@ describe("MatA is 3x3 matrix used for affine transforms", function () {
             var st = Math.sin(Math.PI / 2);
             expect(m.m00).to.be.closeTo(ct, EPSLON);
             expect(m.m01).to.be.closeTo(st, EPSLON);
-            expect(m.m02).equal(0)
+            expect(m.m02).equal(0);
             expect(m.m10).to.be.closeTo(-st, EPSLON);
             expect(m.m11).to.be.closeTo(ct, EPSLON);
             expect(m.m12).equal(0);
